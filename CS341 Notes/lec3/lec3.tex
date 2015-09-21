@@ -1,0 +1,84 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\begin{document}
+	\centering
+	{\scshape\LARGE CS341 \par}
+	{\scshape\Large Lecture 3\par}
+	{\Large\itshape Yaro Gorban\par}
+	{\large \today\par}
+	\vspace{1.5cm}
+	
+	\textbf{Arithmetic Series:}
+	a, a+d, a+2d, ... , a + (n-1)d \linebreak
+	\textbf{Geometric Series:}
+	\begin{itemize}
+	\item a, ar, $ar^2$, ... ,$ar^{n-1}$
+	\item if r \textgreater 1 Sum is: c($r^n$ - 1)
+	\item if 0 \textless r \textless 1 Sum is: c(1 - $r^n$)
+	\end{itemize}
+	\textbf{Harmonic Series: (reciprocal of the integers)}
+	\begin{itemize}
+	\item $1 + \frac{1}{2} + ... + \frac{1}{n} = H_{n}(\in \Theta(\log{n})$
+	\item more precisely $\lim_{n \to \inf}(H_n - \ln{n}) =$ Euler's constant
+	\end{itemize}
+	\textbf{Growth Rate of a Factorial:}
+	\begin{itemize}
+	\item $n! \in \Theta(n^{n+ \frac{1}{2}}) = \Theta((\frac{n}{e})^n\sqrt{n})$
+	\item derived from Stirling's formula
+	\item $\ln n! \approx \ln(n^{n + 0.5}e^{-n} = (n + 0.5)\ln n - n\in\Theta(n\log n)$
+	\end{itemize}
+	\textbf{Growth Rates:}
+	\begin{itemize}
+	\item \textbf{Polynomial:}
+	\begin{itemize}
+	\item $\Theta(1)$
+	\item $\Theta(\log n)$
+	\item $\Theta(\sqrt{n})$
+	\item $\Theta(n)$	
+	\end{itemize}
+	\item \textbf{Exponential:}
+	\begin{itemize}
+	\item $\Theta(1.1^n)$
+	\item $\Theta(2^n)$
+	\item $\Theta(e^n)$
+	\item $\Theta(n!)$
+	\end{itemize}
+	\end{itemize}
+	\textbf{Algorithm Analysis}
+	\begin{itemize}
+	\item We usually strive for a $\Theta$ Bound
+	\item Loops have a run time of the sum of each iteration
+	\item separate loops analyse separately and then add them together
+	\item Nested loops start with inner most and work your way out
+	
+	\end{itemize}
+	\textbf{Analysis of Slide 49:}
+	\begin{itemize}
+	\item everything but the 3 loops is constant time
+	\item The three loops are:
+	\begin{itemize}
+	\item i = 1, ... , n
+	\item j = i, ... , n
+	\item k = i, ... , j
+	\end{itemize}
+	\item Upper Bound:
+	\begin{itemize}
+	\item i = 1, ... , n
+	\item j = 1, ... , n
+	\item k = 1, ... , n
+	\item which is $\in O(n^3)$
+	\end{itemize}
+	\item Lower Bound:
+	\begin{itemize}
+	\item i = 1, ... , $\frac{n}{3}$
+	\item j = $\frac{2n}{3} + 1, ... , n$
+	\item k = $\frac{n}{3} + 1, ... , \frac{2n}{3}$
+	\item $\in \Omega(\frac{n}{3}*\frac{n}{3}*\frac{n}{3})$
+	\item $\in \Omega(\frac{n^3}{3}$
+	\item $\in \Omega(n^3)$
+	\end{itemize}
+	\end{itemize}
+\end{document}
