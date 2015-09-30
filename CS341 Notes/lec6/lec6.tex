@@ -1,0 +1,55 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{graphicx}
+\begin{document}
+	\centering
+	{\scshape\LARGE CS341 \par}
+	{\scshape\Large Lecture 6\par}
+	{\Large\itshape Yaro Gorban\par}
+	{\large \today\par}
+	\vspace{1.5cm}
+
+\textbf{Non dominant points problem:}
+\begin{itemize}
+\item Has a worst case of O(n$^2$) by comparing each set of points
+\item not-dominated points for a "staircase"
+\item all other points are under the stair case
+\item split into S$_1$ and S$_2$
+\item solve both halves
+\item to combine we may have to eliminate some of the non-dominated points in S$_1$
+\item this runs in O(n) time
+\end{itemize}
+\textbf{Complexity}
+\begin{enumerate}
+\item pre-sort $\Theta(n\log n)$
+\item $T(n) = T(\lfloor \frac{n}{2} \rfloor) + T(\rceil \frac{n}{2} \lceil) + O(n)$
+\item sloppy form $T(n) = 2T(\frac{n}{2} + O(n)$ $T(n) \in O(n\log n)$
+\item since we have 2 halves of $n\log n$ time we have a time of O(n$\log$n)
+\end{enumerate}
+\textbf{Closest Pair:}
+\begin{itemize}
+\item Find a Euclidean distance that is minimized
+\item Trivial Algorithm is comparing each point which is O(n$^2$
+\item Presort with respect to x-coordinates $\Theta(n\log n)$
+\item Split the points down the middle
+\item Find the $\delta_L$ and the $\delta_R$
+\item Combine: determine the smallest distance between a point on the left and the the right. is this distance 
+\textless min{$\delta_L, \delta_R$} 
+\item Checking every point is not what we want to do
+\item We create something to create the critical strip
+\item But what if all the points fall in the critical strip? We didn't cut the run time at all.
+\item So we sort the points in R(list of candidates) with respect to the y-coordinates
+\item \textbf{LEMMA:} Suppose the points in the critical strip R are sorted WRT y-coordinates. Suppose that R[j] and R[k] have a distance \textless $\delta$ where j \textless k. Then k $\leq$ j+7
+\end{itemize}
+\textbf{Complexity}
+\begin{enumerate}
+\item presort O(n$\log$n)
+\item $T(n) = 2T(\frac{n}{2}) + O(n)(select candidates) + O(n\log n)(sort) + O(n) (checkstrip)$
+\item T(n) is $O(n(\log n)^2)$
+\end{enumerate}
+
+
+\end{document}
