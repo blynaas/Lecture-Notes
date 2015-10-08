@@ -1,0 +1,31 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{graphicx}
+\begin{document}
+	\centering
+	{\scshape\LARGE CS341 \par}
+	{\scshape\Large Lecture 8\par}
+	{\Large\itshape Yaro Gorban\par}
+	{\large \today\par}
+	\vspace{1.5cm}
+
+\textbf{Quick Select}
+\begin{itemize}
+\item Suppose we choose a pivot element y in the array A, and we restructure A so that all elements less than y precede y in A, and all elements greater that y occurs after y in A.
+\item Quick Sort: recursively sort the Two splits(worst case $\Theta(n^2)$ best case $n\log (n)$
+\item So what we do instead is check is the pivot is the item we are looking for we are done with the search
+\item However if its bigger or smaller we recursively run the algorithm on the bigger or smaller half of the split.
+\item This allows for only one recursive call per cycle.
+\item This gives an average case eof $\Theta(n)$
+\item To get a worst case $\Theta(n)$
+\item Split into 5's for the first 10r + 5 elements
+\item find the median of each set of 5
+\item then use the median of medians to find the pivot
+ 
+\end{itemize}
+
+
+\end{document}
